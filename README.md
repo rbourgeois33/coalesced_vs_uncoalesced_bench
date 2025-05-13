@@ -42,8 +42,8 @@ All plots generated from the benchmark are saved in the `results/` folder. Each 
 Note: Coalesced BW exceeds H100 BW (2TB/s), i was unable to erase cache... . I suspect A100 BW is skewed too, great caches ! :)
 
 ![Nvidia V100](results/Tesla_V100-SXM2-32GB_ratios.png)
-![Nvidia A100](results/NVIDIA_A100-SXM4-80GB.txt)
-![Nvidia H100](results/NVIDIA_H100_80GB_HBM3.txt)
+![Nvidia A100](results/NVIDIA_A100-SXM4-80GB_ratios.png)
+![Nvidia H100](results/NVIDIA_H100_80GB_HBM3_ratios.png)
 ![Nvidia A6000 Ada](results/NVIDIA_RTX_6000_Ada_Generation_ratios.png)
 ---
 
