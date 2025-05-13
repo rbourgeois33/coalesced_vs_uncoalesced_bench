@@ -46,14 +46,15 @@ write_coalesced_ratio = unco_write / coalesced
 
 # Estimate coalesced BW (mean or first value)
 avg_coalesced_bw = np.mean(coalesced)
-coalesced_bw_label = f", Coalesced BW: {avg_coalesced_bw:.1f} GB/s"
+coalesced_bw_label = f", Coalesced BW: {avg_coalesced_bw:.1f} GB/s (measured)"
 
 # === Plotting ===
 plt.figure(figsize=(10, 6))
-plt.plot(indirection, read_write_ratio, 'o-', label='Uncoalesced Write / Read')
-plt.plot(indirection, read_coalesced_ratio, 's--', label='Uncoalesced Read / Coalesced')
-plt.plot(indirection, write_coalesced_ratio, 'd-.', label='Uncoalesced Write / Coalesced')
+plt.plot(indirection, read_write_ratio, 'o-', label='(Uncoal Write, Coal Read)/ (Coal Write, Uncoal Read)')
+plt.plot(indirection, read_coalesced_ratio, 's--', label='(Coal Write, Uncoal Read) / Fully Coalesced ')
+plt.plot(indirection, write_coalesced_ratio, 'd-.', label='(Uncoal Write, Coal Read) / Fully Coalesced')
 
+plt.yticks(np.linspace(0, 1, num=10))
 plt.xlabel('Indirection size (log2)')
 plt.ylabel('Bandwidth Ratio')
 plt.title(f'GPU: {basename.replace("_", " ")}'+coalesced_bw_label)
@@ -62,6 +63,5 @@ plt.legend()
 
 plt.tight_layout()
 plt.savefig(output_image, dpi=400)
-plt.show()
 
 print(f"Plot saved as: {output_image}")

@@ -44,11 +44,10 @@ Note: Coalesced BW exceeds H100 BW (2TB/s), i was unable to erase cache... . I s
 ![Nvidia V100](results/Tesla_V100-SXM2-32GB_ratios.png)
 ![Nvidia A100](results/NVIDIA_A100-SXM4-80GB_ratios.png)
 ![Nvidia H100](results/NVIDIA_H100_80GB_HBM3_ratios.png)
-![Nvidia A6000 Ada](results/NVIDIA_RTX_6000_Ada_Generation_ratios.png)
 ---
 
-## 3. Interpretation
-
+## 3. Interpretation (courtesy of Florent Duguet @ Nvidia)
+During non-coalesced read access, the various caches are populated with data, but different SMs accessing different data from the same cache line only replicate the read (from L2 cache to L1 cache). In the case of a write access, the L1 caches must be merged into the L2 cache to maintain coherence, which requires additional processing by the memory units.
 
 ## 4. Compilation and Run Instructions
 
