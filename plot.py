@@ -10,7 +10,7 @@ args = parser.parse_args()
 
 filename = args.filename
 basename = os.path.splitext(os.path.basename(filename))[0]
-output_image = f"{basename}_ratios.pdf"
+output_image = f"../results/"+f"{basename}_ratios.png"
 
 # === Read and parse data ===
 data = []
