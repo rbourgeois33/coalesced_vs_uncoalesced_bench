@@ -4,14 +4,14 @@
 
 This benchmark compares the memory bandwidth (BW) of several access patterns using Kokkos:
 
-### ✅ Coalesced Read/Write (Baseline)
+### Coalesced Read/Write (Baseline)
 ```cpp
 KOKKOS_LAMBDA(const _SIZE_ i) {
     write(i) = read(i);
 }
 ```
 
-### 🔄 Uncoalesced Read
+### Uncoalesced Read
 ```cpp
 KOKKOS_LAMBDA(const _SIZE_ i) {
     _SIZE_ rindex = indirections(i);
@@ -19,7 +19,7 @@ KOKKOS_LAMBDA(const _SIZE_ i) {
 }
 ```
 
-### 🪣 Uncoalesced Write
+### Uncoalesced Write
 ```cpp
 KOKKOS_LAMBDA(const _SIZE_ i) {
     _SIZE_ rindex = indirections(i);
