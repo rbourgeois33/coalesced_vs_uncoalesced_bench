@@ -27,7 +27,7 @@ KOKKOS_LAMBDA(const _SIZE_ i) {
 }
 ```
 
-The benchmark varies the random indirection size from `0` to the full vector size. The vector size is chosen to fully utilize GPU memory bandwidth: Increasing the size beyond this point no longer improves throughput. 
+The benchmark varies the random indirection size from `0` to the full vector size. The vector size is 2^28 doubles, which should fully utilize GPU memory bandwidth: Increasing the size beyond this point no longer improves throughput. 
 
 ---
 
@@ -44,6 +44,8 @@ Note: Coalesced BW exceeds H100 BW (2TB/s), i was unable to erase cache... . I s
 ![Nvidia V100](results/Tesla_V100-SXM2-32GB_ratios.png)
 ![Nvidia A100](results/NVIDIA_A100-SXM4-80GB_ratios.png)
 ![Nvidia H100](results/NVIDIA_H100_80GB_HBM3_ratios.png)
+![Intel PVC MAX 1550](results/PVC_ratios.png)
+
 ---
 
 ## 3. Interpretation (courtesy of Florent Duguet @ Nvidia)
