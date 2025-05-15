@@ -50,7 +50,7 @@ coalesced_bw_label = f", Coalesced BW: {avg_coalesced_bw:.1f} GB/s (measured)"
 
 # === Plotting ===
 plt.figure(figsize=(10, 6))
-plt.plot(indirection, read_write_ratio, 'o-', label='(Uncoal Write, Coal Read)/ (Coal Write, Uncoal Read)')
+#plt.plot(indirection, read_write_ratio, 'o-', label='(Uncoal Write, Coal Read)/ (Coal Write, Uncoal Read)')
 plt.plot(indirection, read_coalesced_ratio, 's--', label='(Coal Write, Uncoal Read) / Fully Coalesced ')
 plt.plot(indirection, write_coalesced_ratio, 'd-.', label='(Uncoal Write, Coal Read) / Fully Coalesced')
 
