@@ -35,7 +35,6 @@ The benchmark varies the random indirection size from `0` to the full vector siz
 
 All plots generated from the benchmark are saved in the `results/` folder. Each plot corresponds to a GPU and visualizes:
 
-- Uncoalesced Write / Read ratio
 - Uncoalesced Read / Coalesced ratio
 - Uncoalesced Write / Coalesced ratio  
 
@@ -51,9 +50,11 @@ Intel results: courtesy of Daniel Arndt !
 ---
 
 ## 3. Observation / Interpretation
-For all architectures, uncoalesced read are more expensive that uncoalesced write. This is not surprising as it is a well known fact that read is more expensive than write. However, we observe here that the gap widen as the inderection grows. There is small exception for MI300A with the read becoming more expensive than the write for very large indirections.
+For all architectures, uncoalesced read operations are more expensive than uncoalesced write operations. This is not surprising as it is a well known fact that read is more expensive than write. However, we observe here that the ratio gets worse as the inderection grows.
 
-The way the performance decreases with the size of the indirection is a watermark of the cache structure. We globally observe two plateau that I think correspond to L1 cache miss then L2 cache miss respectively. The compressible gas dynamics enthusiast will see the striking resemblance with shock tube profiles !
+There is an exception for MI300A with the read becoming more expensive than the write for very large indirections.
+
+The way the performance decreases with the size of the indirection is a watermark of the cache structure. We globally observe two plateau that I think correspond to L1 cache misses then L2 cache misses respectively. The compressible gas dynamics enthusiast will see the striking resemblance with shock tube profiles !
 
 Florent Duguet @ Nvidia:
 During non-coalesced read access, the various caches are populated with data, but different SMs accessing different data from the same cache line only replicate the read (from L2 cache to L1 cache). In the case of a write access, the L1 caches must be merged into the L2 cache to maintain coherence, which requires additional processing by the memory units.
