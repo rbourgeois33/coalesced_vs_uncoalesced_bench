@@ -1,0 +1,26 @@
+#!/bin/bash
+#SBATCH --account=cad15920
+#SBATCH --job-name="kokkos_hip"
+#SBATCH --constraint=MI250
+#SBATCH --nodes=1
+#SBATCH --exclusive
+#SBATCH --time=00:10:00
+#SBATCH --output=kokkos_hip_%j.out
+#SBATCH --error=kokkos_hip_%j.err
+#SBATCH --exclusive
+
+# Clean environment
+module purge
+
+# Load required modules
+module load cpe/24.07
+module load craype-accel-amd-gfx90a craype-x86-trento
+module load PrgEnv-cray
+module load amd-mixed
+module list
+
+#export HSA_XNACK=1
+#Run the executable
+# Adjust the executable name and arguments as needed
+#srun --ntasks-per-node=1 --cpus-per-task=1 --threads-per-core=1 --gpu-bind=closest -- ./../run-bench.sh
+./../run-bench.sh
