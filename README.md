@@ -46,9 +46,8 @@ Note: Coalesced BW exceeds H100 BW (2TB/s), i was unable to erase cache... . I s
 ![Nvidia H100](results/NVIDIA_H100_80GB_HBM3_ratios.png)
 ![AMD MI250X](results/AMD_Instinct_MI250X_ratios.png)
 ![AMD MI300A](results/AMD_Instinct_MI300A_ratios.png)
-
 ![Intel PVC MAX 1550](results/PVC_ratios.png)
-
+Intel results: courtesy of Daniel Arndt !
 ---
 
 ## 3. Observation / Interpretation
