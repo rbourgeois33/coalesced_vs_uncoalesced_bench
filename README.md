@@ -44,11 +44,16 @@ Note: Coalesced BW exceeds H100 BW (2TB/s), i was unable to erase cache... . I s
 ![Nvidia V100](results/Tesla_V100-SXM2-32GB_ratios.png)
 ![Nvidia A100](results/NVIDIA_A100-SXM4-80GB_ratios.png)
 ![Nvidia H100](results/NVIDIA_H100_80GB_HBM3_ratios.png)
+![AMD MI250X](results/AMD_Instinct_MI250X_ratios.png)
+![AMD MI300A](results/AMD_Instinct_MI300A_ratios.png)
+
 ![Intel PVC MAX 1550](results/PVC_ratios.png)
 
 ---
 
-## 3. Interpretation (courtesy of Florent Duguet @ Nvidia)
+## 3. Observation / Interpretation (courtesy of Florent Duguet @ Nvidia)
+For all architectures, uncoalesced read are more expensive that uncoalesced write. This is not surprising as it is a well known fact that read is more expensive than write. However, we observe here that the gap widen as the inderection grows. There is small exception for MI300A with the read becoming more expensive than the write for very large indirections.
+
 During non-coalesced read access, the various caches are populated with data, but different SMs accessing different data from the same cache line only replicate the read (from L2 cache to L1 cache). In the case of a write access, the L1 caches must be merged into the L2 cache to maintain coherence, which requires additional processing by the memory units.
 
 ## 4. Compilation and Run Instructions
