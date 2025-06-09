@@ -57,7 +57,7 @@ There is an exception for MI300A with the read becoming more expensive than the 
 The way the performance decreases with the size of the indirection is a watermark of the cache structure. We globally observe two plateau that I think correspond to L1 cache misses then L2 cache misses respectively. The compressible gas dynamics enthusiast will see the striking resemblance with shock tube profiles !
 
 Florent Duguet @ Nvidia:
-During non-coalesced read access, the various caches are populated with data, but different SMs accessing different data from the same cache line only replicate the read (from L2 cache to L1 cache). In the case of a write access, the L1 caches must be merged into the L2 cache to maintain coherence, which requires additional processing by the memory units.
+During non-coalesced read access, the various caches are populated with data, but different SMs accessing different data from the same cache line only replicate the read (from L2 cache to L1 cache). In the case of a write access, the L1 caches must be merged into the L2 cache to maintain coherence (i.e. L1 cache is write through), which requires additional processing by the memory units.
 
 ## 4. Compilation and Run Instructions
 
